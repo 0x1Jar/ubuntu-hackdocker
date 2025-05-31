@@ -10,6 +10,9 @@ sudo apt-get install -y wget curl vim golang git build-essential unzip python3 p
 # Install basic network and hacking tools
 sudo apt-get install -y nmap netcat-openbsd
 
+# Install libpcap-dev for Go tools that require pcap.h
+sudo apt-get install -y libpcap-dev
+
 # Install additional hacking tools from apt (excluding amass, seclists, nuclei)
 sudo apt-get install -y masscan ffuf gobuster wfuzz jq tmux
 
