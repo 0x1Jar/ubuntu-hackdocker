@@ -8,7 +8,7 @@ sudo apt-get update
 sudo apt-get install -y wget curl vim golang git build-essential unzip python3 python3-pip
 
 # Install basic network and hacking tools
-sudo apt-get install -y nmap netcat-openbsd
+sudo apt-get install -y nmap netcat-openbsd iproute2
 
 # Install libpcap-dev for Go tools that require pcap.h
 sudo apt-get install -y libpcap-dev
