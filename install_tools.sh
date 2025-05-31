@@ -26,6 +26,12 @@ if ! grep -q 'export GOPATH' ~/.bashrc; then
     export PATH=$PATH:$GOPATH/bin
 fi
 
+# Install Node.js (required for some tools like Aquatone)
+if ! command -v node &> /dev/null; then
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+fi
+
 # Install Go-based tools
 # Assetfinder
 if ! command -v assetfinder &> /dev/null; then
