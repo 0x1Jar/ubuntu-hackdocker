@@ -8,7 +8,7 @@ sudo apt-get update
 sudo apt-get install -y wget curl vim golang git build-essential unzip python3 python3-pip
 
 # Install basic network and hacking tools
-sudo apt-get install -y nmap netcat
+sudo apt-get install -y nmap netcat-openbsd
 
 # Install additional hacking tools from apt
 sudo apt-get install -y amass seclists masscan ffuf gobuster wfuzz nuclei jq tmux
