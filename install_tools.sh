@@ -10,8 +10,8 @@ sudo apt-get install -y wget curl vim golang git build-essential unzip python3 p
 # Install basic network and hacking tools
 sudo apt-get install -y nmap netcat-openbsd
 
-# Install additional hacking tools from apt
-sudo apt-get install -y amass seclists masscan ffuf gobuster wfuzz nuclei jq tmux
+# Install additional hacking tools from apt (excluding amass, seclists, nuclei)
+sudo apt-get install -y masscan ffuf gobuster wfuzz jq tmux
 
 # Install Go (if not installed)
 if ! command -v go &> /dev/null; then
@@ -68,6 +68,23 @@ fi
 if ! command -v hakrawler &> /dev/null; then
     go install github.com/hakluke/hakrawler@latest
     sudo cp ~/go/bin/hakrawler /usr/local/bin/
+fi
+# Install Amass (Go-based)
+if ! command -v amass &> /dev/null; then
+    go install github.com/owasp-amass/amass/v4/...@latest
+    sudo cp ~/go/bin/amass /usr/local/bin/
+fi
+
+# Install Nuclei (Go-based)
+if ! command -v nuclei &> /dev/null; then
+    go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+    sudo cp ~/go/bin/nuclei /usr/local/bin/
+fi
+
+# Install Seclists (via git clone)
+if [ ! -d "/opt/seclists" ]; then
+    sudo git clone https://github.com/danielmiessler/SecLists.git /opt/seclists
+    sudo chown -R $USER:$USER /opt/seclists
 fi
 
 # Install Arjun (via pip)
